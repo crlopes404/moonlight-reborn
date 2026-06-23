@@ -134,10 +134,10 @@ function Produtos() {
                     <motion.div
                       animate={{ rotate: -360 }}
                       transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                      className={`size-20 md:size-24 rounded-2xl glass grid place-items-center transition-all overflow-hidden p-3 dark:!bg-white/90 dark:hover:!bg-white dark:!border-white/70 ${isActive ? "holo-border" : ""}`}
+                      className={`size-20 md:size-24 rounded-2xl glass grid place-items-center transition-all overflow-hidden p-1 dark:!bg-white/90 dark:hover:!bg-white dark:!border-white/70 ${isActive ? "holo-border" : ""}`}
                       style={{ boxShadow: isActive ? `0 0 40px ${p.color}, inset 0 1px 0 oklch(1 0 0 / 0.1)` : undefined }}
                     >
-                      <img src={productImages[p.id]} alt={p.name} className="max-w-full max-h-full object-contain" />
+                      <img src={productImages[p.id]} alt={p.name} className="w-full h-full object-contain" />
                     </motion.div>
                   </motion.button>
                 );
