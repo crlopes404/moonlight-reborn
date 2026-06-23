@@ -3,19 +3,19 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Target, BarChart3, Link2, Gamepad2, ShoppingBag, ArrowRight, Check } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
-import mLeadsAsset from "@/assets/m-leads.png.asset.json";
-import mAnalyticsAsset from "@/assets/m-analytics.png.asset.json";
-import mChainAsset from "@/assets/m-chain.png.asset.json";
-import mGamingAsset from "@/assets/m-gaming.png.asset.json";
-import mEcommerceAsset from "@/assets/m-ecommerce.png.asset.json";
-import mLogoAsset from "@/assets/mlogo0.png.asset.json";
+import mLeadsImg from "@/assets/m-leads.png";
+import mAnalyticsImg from "@/assets/m-analitics.png";
+import mChainImg from "@/assets/m-mchain.png";
+import mGamingImg from "@/assets/m-gaming.png";
+import mEcommerceImg from "@/assets/m-ecommerce.png";
+import mLogoImg from "@/assets/mlogo.png";
 
 const productImages: Record<string, string> = {
-  leads: mLeadsAsset.url,
-  analytics: mAnalyticsAsset.url,
-  chain: mChainAsset.url,
-  gaming: mGamingAsset.url,
-  ecom: mEcommerceAsset.url,
+  leads: mLeadsImg,
+  analytics: mAnalyticsImg,
+  chain: mChainImg,
+  gaming: mGamingImg,
+  ecom: mEcommerceImg,
 };
 
 export const Route = createFileRoute("/produtos")({
@@ -107,7 +107,7 @@ function Produtos() {
             ))}
             <div className="absolute left-1/2 top-1/2 size-28 -translate-x-1/2 -translate-y-1/2 rounded-full glass-elev grid place-items-center holo-border overflow-hidden dark:!bg-white dark:!border-white/80">
               <div className="absolute inset-0 rounded-full pointer-events-none dark:bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.85)_60%,rgba(255,255,255,0.6)_100%)]" />
-              <img src={mLogoAsset.url} alt="Moonlight" className="relative size-20 object-contain opacity-100" style={{ filter: "none" }} />
+              <img src={mLogoImg} alt="Moonlight" className="relative size-20 object-contain opacity-100" style={{ filter: "none" }} />
               <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: `0 0 60px ${accent}`, transition: "box-shadow 600ms" }} />
             </div>
 
@@ -134,7 +134,7 @@ function Produtos() {
                     <motion.div
                       animate={{ rotate: -360 }}
                       transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                      className={`size-20 md:size-24 rounded-2xl glass grid place-items-center transition-all overflow-hidden p-2 dark:!bg-[rgba(216,197,255,0.18)] dark:hover:!bg-[rgba(216,197,255,0.26)] ${isActive ? "holo-border" : ""}`}
+                      className={`size-20 md:size-24 rounded-2xl glass grid place-items-center transition-all overflow-hidden p-3 dark:!bg-white/90 dark:hover:!bg-white dark:!border-white/70 ${isActive ? "holo-border" : ""}`}
                       style={{ boxShadow: isActive ? `0 0 40px ${p.color}, inset 0 1px 0 oklch(1 0 0 / 0.1)` : undefined }}
                     >
                       <img src={productImages[p.id]} alt={p.name} className="max-w-full max-h-full object-contain" />
