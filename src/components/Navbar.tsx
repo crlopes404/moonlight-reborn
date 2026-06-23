@@ -27,6 +27,21 @@ export function Navbar() {
 
   return (
     <>
+      {/* Top progressive-blur fade: sits behind the navbar, fades scrolled
+          content near the top so the navbar stands out without overlapping text. */}
+      <div
+        aria-hidden
+        className="pointer-events-none fixed inset-x-0 top-0 z-[90]"
+        style={{
+          height: "150px",
+          backdropFilter: "blur(14px)",
+          WebkitBackdropFilter: "blur(14px)",
+          background: "linear-gradient(to bottom, var(--color-background) 0%, color-mix(in oklch, var(--color-background) 55%, transparent) 45%, transparent 100%)",
+          maskImage: "linear-gradient(to bottom, black 0%, black 40%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 0%, black 40%, transparent 100%)",
+        }}
+      />
+
       <motion.header
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
