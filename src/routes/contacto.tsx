@@ -16,14 +16,14 @@ export const Route = createFileRoute("/contacto")({
   component: Contacto,
 });
 
-const services = ["Software Development", "Business Intelligence", "IoT", "AR/VR", "IT Consulting", "Big Data", "Outro"];
+const services = ["Software Development", "BI & Marketing", "IT Consulting", "IoT / AR / VR", "Suporte SLA", "B.Analytics", "Outro"];
 
 const faqs = [
   { q: "Qual é o vosso prazo típico de resposta?", a: "Respondemos em até 24h úteis. Para projetos urgentes, agendamos call em 48h." },
-  { q: "Trabalham com empresas fora de Portugal?", a: "Sim. Operamos em toda a UE e temos clientes ativos em 9 países." },
-  { q: "Qual é o orçamento mínimo de projeto?", a: "Projetos chave-na-mão começam tipicamente em €40k. Consultoria pontual a partir de €5k." },
-  { q: "Assinam NDA antes da primeira reunião?", a: "Sim, sempre que o cliente o solicite. Temos NDA bilateral standard pronto a enviar." },
-  { q: "Os vossos produtos proprietários são licenciáveis?", a: "Sim, por SaaS ou on-premise. Cada produto tem modelo de pricing dedicado." },
+  { q: "Trabalham com empresas fora de Portugal?", a: "Sim. Trabalhamos com clientes nacionais e internacionais, incluindo grandes grupos automóveis e enterprise." },
+  { q: "Oferecem equipas dedicadas?", a: "Sim. No modelo TaaS (Team as a Service) montamos equipas dedicadas que integram a sua operação." },
+  { q: "Como funciona o suporte?", a: "Disponibilizamos help desk e suporte aplicacional com SLA, monitorização contínua e manutenção evolutiva." },
+  { q: "O B.Analytics é licenciável?", a: "Sim. O B.Analytics está disponível em cloud ou on-premise, com integração e suporte da Moonlight." },
 ];
 
 function Contacto() {
@@ -52,9 +52,9 @@ function Contacto() {
       <section className="relative py-16">
         <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-3 gap-4">
           {[
-            { icon: Mail, label: "Email", value: "hello@moonlight.pt" },
-            { icon: Phone, label: "Telefone", value: "+351 210 000 000" },
-            { icon: MapPin, label: "Sede", value: "Av. da República 41, Lisboa" },
+            { icon: Mail, label: "Email", value: "clopes@moonlight.pt" },
+            { icon: Phone, label: "Website", value: "moonlight.pt" },
+            { icon: MapPin, label: "Sede", value: "Portugal" },
           ].map((c, i) => (
             <motion.div
               key={c.label}
@@ -201,7 +201,7 @@ function Contacto() {
 
       <section className="relative py-24 text-center">
         <div className="mx-auto max-w-3xl px-6">
-          <h3 className="font-display text-4xl md:text-5xl">Ou simplesmente <a href="mailto:hello@moonlight.pt" data-magnetic className="text-gradient">manda-nos um email</a>.</h3>
+          <h3 className="font-display text-4xl md:text-5xl">Ou simplesmente <a href="mailto:clopes@moonlight.pt" data-magnetic className="text-gradient">manda-nos um email</a>.</h3>
         </div>
       </section>
     </>

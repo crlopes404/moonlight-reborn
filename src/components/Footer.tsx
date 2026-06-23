@@ -26,14 +26,15 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link to="/" className="font-display text-xl">Moonlight<span className="text-primary">.</span></Link>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
-              Software house portuguesa. Desde 1998 a construir o futuro com engenharia de excelência.
+              Moonlight Comunicação Global LDA. Desde 1998 a construir o futuro —
+              software, BI e consultoria. <span className="text-foreground">O futuro não espera.</span>
             </p>
             <motion.a
-              href="mailto:hello@moonlight.pt"
+              href="mailto:clopes@moonlight.pt"
               data-magnetic
               className="mt-6 inline-flex items-center gap-3 text-sm font-mono group"
             >
-              hello@moonlight.pt
+              clopes@moonlight.pt
               <span className="size-8 rounded-full glass grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <ArrowUpRight className="size-3.5" />
               </span>
@@ -52,9 +53,9 @@ export function Footer() {
           <div>
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Sede</div>
             <p className="text-sm">
-              Av. da República 41<br />
-              1050-187 Lisboa<br />
-              Portugal
+              Portugal<br />
+              <a href="mailto:clopes@moonlight.pt" className="hover:text-primary transition-colors">clopes@moonlight.pt</a><br />
+              moonlight.pt
             </p>
             <div className="mt-5 flex gap-3">
               {[Linkedin, Twitter, Github].map((Icon, i) => (
@@ -67,11 +68,11 @@ export function Footer() {
         </div>
 
         <div className="mt-12 flex flex-wrap justify-between gap-4 font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-          <div>© 1998–2026 Moonlight. All rights reserved.</div>
+          <div>© 1998–2026 Moonlight Comunicação Global LDA. All rights reserved.</div>
           <div className="flex gap-6">
-            <a href="#">Privacy</a>
-            <a href="#">Cookies</a>
-            <span className="text-primary">v 27.0 / online</span>
+            <a href="#" className="hover:text-foreground transition-colors">Privacy</a>
+            <a href="#" className="hover:text-foreground transition-colors">Cookies</a>
+            <span className="text-primary">est. 1998 / online</span>
           </div>
         </div>
       </div>

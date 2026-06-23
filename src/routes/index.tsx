@@ -1,15 +1,16 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { ArrowRight, Code2, BrainCircuit, Boxes, Briefcase, Database, Target, BarChart3, Link2, Gamepad2, ShoppingBag } from "lucide-react";
+import { ArrowRight, Code2, BarChart3, Briefcase, Boxes, Headphones, Database, LineChart, Cpu } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CTABanner } from "@/components/CTABanner";
+import { TiltCard } from "@/components/TiltCard";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Moonlight — O futuro não espera · Desde 1998" },
-      { name: "description", content: "Software house portuguesa: Software Development, BI, IoT/AR/VR, Big Data e produtos proprietários." },
+      { title: "Moonlight Comunicação Global — O Futuro Não Espera · Desde 1998" },
+      { name: "description", content: "Software house portuguesa desde 1998: Software Development, BI & Marketing, IT Consulting, IoT/AR/VR e Suporte SLA. Produto próprio B.Analytics." },
     ],
   }),
   component: Index,
@@ -17,24 +18,22 @@ export const Route = createFileRoute("/")({
 
 const servicesPreview = [
   { icon: Code2, title: "Software Development" },
-  { icon: BrainCircuit, title: "Business Intelligence" },
-  { icon: Boxes, title: "IoT / AR / VR" },
+  { icon: BarChart3, title: "BI & Marketing" },
   { icon: Briefcase, title: "IT Consulting" },
-  { icon: Database, title: "Big Data" },
+  { icon: Boxes, title: "IoT / AR / VR" },
+  { icon: Headphones, title: "Suporte SLA" },
 ];
 
-const productsPreview = [
-  { icon: Target, name: "M.Leads", tag: "Sales Intelligence" },
-  { icon: BarChart3, name: "M.Analytics", tag: "Business Intelligence" },
-  { icon: Link2, name: "M.Chain+", tag: "Supply Chain" },
-  { icon: Gamepad2, name: "M.Gaming", tag: "AR/VR" },
-  { icon: ShoppingBag, name: "Ecommerce", tag: "Commerce" },
+const productPillars = [
+  { icon: Database, name: "Data Integration", tag: "Fontes unificadas em tempo real" },
+  { icon: BarChart3, name: "BI Dashboards", tag: "Visualização e KPIs executivos" },
+  { icon: Cpu, name: "Decision Systems", tag: "Apoio à decisão orientado a dados" },
 ];
 
 const casesPreview = [
-  { client: "Banco Atlântico", sector: "Banking", kpi: "−87% latência" },
-  { client: "RetailCo Iberia", sector: "Retail", kpi: "3.2× conversão" },
-  { client: "Lusiada Energy", sector: "Energy", kpi: "1.4M sensores" },
+  { client: "FCA / Fiat Chrysler", sector: "Automotive", kpi: "Leads Management" },
+  { client: "Homologacoes.net", sector: "Plataforma digital", kpi: "Plataforma chave-na-mão" },
+  { client: "Rubisgás", sector: "Energia", kpi: "Sistemas de negócio" },
 ];
 
 function Index() {
@@ -43,16 +42,18 @@ function Index() {
       <Hero />
 
       {/* Company Intro Preview */}
-      <section className="relative py-32">
+      <section className="section">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <SectionHeader eyebrow="Quem Somos" title="27 anos a desenhar o amanhã." />
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
-              Fundada em 1998 em Lisboa, a Moonlight é uma software house obcecada por
-              engenharia de excelência. Construímos plataformas, produtos próprios e
-              infraestrutura crítica para empresas que recusam ser ontem.
+            <SectionHeader eyebrow="Quem Somos" title="28 anos a desenhar o amanhã." />
+            <p className="mt-6 lead text-muted-foreground measure">
+              Fundada em 1998, a <span className="text-foreground font-medium">Moonlight Comunicação
+              Global</span> é uma software house portuguesa focada em desenvolvimento à medida,
+              Business Intelligence e transformação digital. Construímos sistemas, plataformas e
+              o produto próprio <span className="text-foreground font-medium">B.Analytics</span>
+              para empresas que recusam esperar pelo futuro.
             </p>
-            <LearnMore to="/quem-somos">Conhecer a história</LearnMore>
+            <div className="mt-8"><LearnMore to="/quem-somos">Conhecer a história</LearnMore></div>
           </div>
           <div className="relative aspect-square max-w-md mx-auto">
             <div className="absolute inset-0 rounded-full glass-elev holo-border" />
@@ -60,7 +61,7 @@ function Index() {
             <div className="absolute inset-16 rounded-full border border-dashed border-border/40 animate-[orbit-counter_40s_linear_infinite]" />
             <div className="absolute inset-0 grid place-items-center">
               <div className="text-center">
-                <div className="font-display text-7xl text-gradient">27</div>
+                <div className="font-display text-7xl text-gradient">28</div>
                 <div className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mt-2">anos · 1998–2026</div>
               </div>
             </div>
@@ -69,9 +70,9 @@ function Index() {
       </section>
 
       {/* Services Preview */}
-      <section className="relative py-32">
+      <section className="section">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeader eyebrow="Serviços" title="Engenharia transversal." subtitle="Seis disciplinas, uma filosofia." />
+          <SectionHeader eyebrow="Serviços" title="Engenharia transversal." subtitle="Cinco disciplinas, uma filosofia: do código à operação." />
           <div className="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
             {servicesPreview.map((s, i) => (
               <motion.div
@@ -80,10 +81,13 @@ function Index() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06 }}
-                className="glass rounded-2xl p-6 hover:holo-border transition-all group"
               >
-                <s.icon className="size-6 text-primary group-hover:scale-110 transition-transform" />
-                <div className="mt-4 font-display text-sm leading-tight">{s.title}</div>
+                <TiltCard className="glass rounded-2xl p-6 hover:holo-border transition-all group h-full">
+                  <div style={{ transform: "translateZ(30px)" }}>
+                    <s.icon className="size-6 text-primary group-hover:scale-110 transition-transform" />
+                    <div className="mt-4 font-display text-sm leading-tight">{s.title}</div>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
@@ -91,35 +95,44 @@ function Index() {
         </div>
       </section>
 
-      {/* Products Preview */}
-      <section className="relative py-32">
+      {/* Product Spotlight — B.Analytics */}
+      <section className="section">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeader eyebrow="Produtos Proprietários" title="Cinco módulos. Um sistema." subtitle="Tecnologia construída em casa, ao serviço de quem nos confia o futuro." />
-          <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            {productsPreview.map((p, i) => (
+          <SectionHeader
+            eyebrow="Produto Proprietário"
+            title="B.Analytics"
+            subtitle="O nosso produto de dados: integração de fontes, dashboards de BI e sistemas de apoio à decisão — numa só plataforma."
+          />
+          <div className="mt-16 grid sm:grid-cols-3 gap-4">
+            {productPillars.map((p, i) => (
               <motion.div
                 key={p.name}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="relative glass-elev rounded-2xl p-6 group overflow-hidden"
               >
-                <div className="absolute -top-10 -right-10 size-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "var(--glow)", filter: "blur(40px)" }} />
-                <p.icon className="size-7 text-primary relative" />
-                <div className="mt-5 font-display text-lg relative">{p.name}</div>
-                <div className="mt-1 font-mono text-[10px] uppercase tracking-wider text-muted-foreground relative">{p.tag}</div>
+                <TiltCard className="relative glass-elev rounded-2xl p-7 group overflow-hidden h-full">
+                  <div className="absolute -top-10 -right-10 size-32 rounded-full opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "var(--glow)", filter: "blur(40px)" }} />
+                  <div style={{ transform: "translateZ(40px)" }}>
+                    <div className="size-12 rounded-xl glass grid place-items-center relative group-hover:scale-110 transition-transform">
+                      <p.icon className="size-6 text-primary" />
+                    </div>
+                    <div className="mt-5 font-display text-xl relative">{p.name}</div>
+                    <div className="mt-2 text-sm text-muted-foreground relative">{p.tag}</div>
+                  </div>
+                </TiltCard>
               </motion.div>
             ))}
           </div>
-          <div className="mt-10"><LearnMore to="/produtos">Explorar produtos</LearnMore></div>
+          <div className="mt-10"><LearnMore to="/produtos">Explorar o B.Analytics</LearnMore></div>
         </div>
       </section>
 
       {/* Cases Preview */}
-      <section className="relative py-32">
+      <section className="section">
         <div className="mx-auto max-w-7xl px-6">
-          <SectionHeader eyebrow="Case Studies" title="Transformações reais." />
+          <SectionHeader eyebrow="Case Studies" title="Transformações reais." subtitle="Projetos entregues para líderes da indústria automóvel e enterprise." />
           <div className="mt-16 grid md:grid-cols-3 gap-6">
             {casesPreview.map((c, i) => (
               <motion.div
@@ -132,11 +145,28 @@ function Index() {
               >
                 <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">{c.sector}</div>
                 <div className="mt-4 font-display text-2xl">{c.client}</div>
-                <div className="mt-6 font-display text-3xl text-gradient">{c.kpi}</div>
+                <div className="mt-6 font-display text-2xl text-gradient">{c.kpi}</div>
               </motion.div>
             ))}
           </div>
           <div className="mt-10"><LearnMore to="/case-studies">Ver portfolio</LearnMore></div>
+        </div>
+      </section>
+
+      {/* Clients */}
+      <section className="section-sm">
+        <div className="mx-auto max-w-7xl px-6 text-center">
+          <div className="eyebrow">Confiança de líderes</div>
+          <p className="mt-4 text-muted-foreground measure mx-auto">
+            Ecossistema automóvel e enterprise — do grupo Stellantis a marcas premium.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
+            {["BMW", "Volkswagen", "Stellantis", "Peugeot", "Audi", "Fiat Chrysler", "Rubisgás"].map((c) => (
+              <span key={c} className="font-display text-xl md:text-2xl tracking-tight text-foreground/55 hover:text-foreground transition-colors">
+                {c}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 

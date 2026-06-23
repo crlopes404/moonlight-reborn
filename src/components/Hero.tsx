@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
-import { ClientOnly } from "@tanstack/react-router";
+import { ClientOnly, useNavigate } from "@tanstack/react-router";
 import { MagneticButton } from "./MagneticButton";
 import { MoonScene } from "./MoonScene";
 
 export function Hero() {
+  const navigate = useNavigate();
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden">
       {/* Animated grid */}
@@ -40,7 +41,7 @@ export function Hero() {
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-mono uppercase tracking-widest text-muted-foreground mb-8"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-          <span>Est. 1998 · Portugal</span>
+          <span>Moonlight Comunicação Global · Est. 1998</span>
           <Sparkles className="h-3 w-3 text-primary" />
         </motion.div>
 
@@ -58,11 +59,12 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="mt-8 max-w-2xl text-base md:text-lg text-muted-foreground leading-relaxed"
+          className="mt-8 max-w-2xl lead text-muted-foreground text-balance"
         >
-          IT Solutions, Consulting & Marketing — desde <span className="text-foreground font-medium">1998</span> a
-          transformar empresas com tecnologia que se sente{" "}
-          <span className="text-foreground font-medium">de outro tempo</span>.
+          Software à medida, Business Intelligence e consultoria IT — desde{" "}
+          <span className="text-foreground font-medium">1998</span> a transformar empresas
+          do setor automóvel e enterprise com tecnologia que{" "}
+          <span className="text-foreground font-medium">antecipa o amanhã</span>.
         </motion.p>
 
         <motion.div
@@ -71,10 +73,12 @@ export function Hero() {
           transition={{ delay: 1.0, duration: 0.8 }}
           className="mt-12 flex flex-wrap items-center justify-center gap-4"
         >
-          <MagneticButton variant="primary">
+          <MagneticButton variant="primary" onClick={() => navigate({ to: "/contacto" })}>
             Quero ser contactado <ArrowRight className="h-4 w-4" />
           </MagneticButton>
-          <MagneticButton variant="ghost">Explorar o futuro</MagneticButton>
+          <MagneticButton variant="ghost" onClick={() => navigate({ to: "/produtos" })}>
+            Conhecer o B.Analytics
+          </MagneticButton>
         </motion.div>
 
         {/* Floating HUD chips */}
@@ -84,7 +88,7 @@ export function Hero() {
           transition={{ delay: 1.4, duration: 1 }}
           className="absolute bottom-10 inset-x-0 flex flex-wrap items-center justify-center gap-3 px-6"
         >
-          {["27 anos", "200+ projetos", "5 produtos próprios", "ISO 27001"].map((t, i) => (
+          {["Desde 1998", "Software à medida", "B.Analytics", "Suporte SLA"].map((t, i) => (
             <motion.div
               key={t}
               animate={{ y: [0, -6, 0] }}

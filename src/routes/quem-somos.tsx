@@ -18,27 +18,27 @@ export const Route = createFileRoute("/quem-somos")({
 });
 
 const timeline = [
-  { year: "1998", title: "Fundação", desc: "Três engenheiros lançam a Moonlight em Lisboa, focados em software à medida." },
-  { year: "2003", title: "Primeira plataforma proprietária", desc: "Lançamento do M.Leads — gestão comercial para banca portuguesa." },
-  { year: "2009", title: "Expansão BI", desc: "Nasce o M.Analytics. Tornamo-nos referência em Business Intelligence ibérica." },
-  { year: "2014", title: "Era IoT & Mobile", desc: "Primeiros projetos de smart cities e wearables corporativos." },
-  { year: "2019", title: "M.Chain+ & blockchain", desc: "Lançamento da suíte de supply chain rastreável end-to-end." },
-  { year: "2022", title: "AR/VR enterprise", desc: "M.Gaming entra em formação imersiva para indústria pesada." },
-  { year: "2026", title: "Next-gen platform", desc: "Reescrita completa do core para uma arquitetura agentic-native." },
+  { year: "1998", title: "Fundação", desc: "Nasce a Moonlight Comunicação Global, em Portugal, focada em software à medida." },
+  { year: "2004", title: "Foco em Business Intelligence", desc: "Consolidamos a prática de BI & Marketing — analytics e sistemas de leads." },
+  { year: "2010", title: "Setor automóvel", desc: "Parcerias com o ecossistema automóvel — gestão de leads para grandes marcas." },
+  { year: "2015", title: "Consultoria & TaaS", desc: "Equipas dedicadas em modelo Team as a Service e auditorias de arquitetura." },
+  { year: "2019", title: "IoT / AR / VR", desc: "Expansão para dispositivos conectados e experiências imersivas enterprise." },
+  { year: "2022", title: "B.Analytics", desc: "Maturação do produto próprio de integração de dados, BI e decisão." },
+  { year: "2026", title: "O futuro não espera", desc: "Plataformas data-driven e suporte SLA ao serviço de quem antecipa o amanhã." },
 ];
 
 const values = [
-  { icon: Rocket, title: "Velocidade com profundidade", desc: "Iteramos rápido sem cortar na engenharia. Cada release é defensável em 2030." },
-  { icon: Shield, title: "Segurança por defeito", desc: "ISO 27001 desde 2012. Threat modeling antes de cada feature." },
-  { icon: Sparkles, title: "Curiosidade radical", desc: "Investimos 12% da receita em R&D próprio todos os anos." },
-  { icon: Users, title: "Parceria de longo prazo", desc: "Clientes connosco há mais de uma década. Não fazemos drive-by consulting." },
+  { icon: Rocket, title: "Velocidade com profundidade", desc: "Iteramos rápido sem cortar na engenharia. Entregamos software que dura." },
+  { icon: Shield, title: "Fiabilidade por defeito", desc: "Suporte com SLA, monitorização contínua e operação que não falha quando importa." },
+  { icon: Sparkles, title: "Curiosidade radical", desc: "Investimos continuamente em I&D próprio — daí ter nascido o B.Analytics." },
+  { icon: Users, title: "Parceria de longo prazo", desc: "Clientes connosco há anos. Não fazemos drive-by consulting." },
 ];
 
 const stats = [
-  { v: "27", l: "Anos de operação" },
-  { v: "450+", l: "Projetos entregues" },
-  { v: "12%", l: "Receita em R&D" },
-  { v: "99.99%", l: "SLA garantido" },
+  { v: "28", l: "Anos de operação" },
+  { v: "1998", l: "Fundação" },
+  { v: "5", l: "Áreas de serviço" },
+  { v: "SLA", l: "Suporte garantido" },
 ];
 
 function QuemSomos() {
@@ -61,9 +61,10 @@ function QuemSomos() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-6 font-display text-[clamp(2.8rem,8vw,7rem)] leading-[0.95] tracking-tight max-w-5xl">
             Engenheiros do <span className="text-gradient">tempo presente</span>, obcecados pelo futuro.
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 text-lg text-muted-foreground max-w-2xl">
-            Somos uma software house portuguesa. Há 27 anos a transformar empresas
-            com produtos, plataformas e equipas que recusam o "suficiente".
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 lead text-muted-foreground measure">
+            Somos a Moonlight Comunicação Global — software house portuguesa fundada em 1998.
+            Há 28 anos a transformar empresas com produtos, plataformas e equipas que recusam
+            o "suficiente".
           </motion.p>
         </div>
       </section>

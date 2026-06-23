@@ -17,39 +17,39 @@ export const Route = createFileRoute("/case-studies")({
 });
 
 const stats = [
-  { v: 450, suffix: "+", l: "Projetos entregues" },
-  { v: 27, l: "Anos de operação" },
-  { v: 99.99, suffix: "%", l: "SLA médio" },
-  { v: 18, l: "Setores ativos" },
+  { v: 28, l: "Anos de operação" },
+  { v: 1998, l: "Fundação" },
+  { v: 5, l: "Áreas de serviço" },
+  { v: 99.9, suffix: "%", l: "SLA de suporte" },
 ];
 
 const cases = [
   {
-    client: "Banco Atlântico", sector: "Banking", year: "2024",
-    challenge: "Core analytics legado incapaz de suportar reporting regulatório em tempo real.",
-    strategy: "Migração para lakehouse com camada semântica unificada e dashboards self-service.",
-    solution: "Kafka + Snowflake + dbt + React frontend com 240 dashboards executivos.",
-    stack: ["Kafka", "Snowflake", "dbt", "React", "Kubernetes"],
-    kpis: [{ value: 87, suffix: "%", label: "Redução de latência" }, { value: 12, prefix: "€", suffix: "M", label: "Poupança anual" }, { value: 240, suffix: "+", label: "Dashboards" }],
-    testimonial: { quote: "A Moonlight redesenhou a nossa stack analítica em 6 meses. Sem teatro.", who: "Mariana Costa", role: "CTO" },
+    client: "FCA / Fiat Chrysler", sector: "Automóvel", year: "Leads Management",
+    challenge: "Captar, distribuir e acompanhar leads comerciais à escala de uma rede automóvel multimarca.",
+    strategy: "Plataforma centralizada de leads management integrada com a rede de concessionários e canais digitais.",
+    solution: "Sistema de captação, qualificação e encaminhamento de leads, com dashboards de acompanhamento comercial.",
+    stack: ["Lead Management", "Integrações", "Dashboards", "Web"],
+    kpis: [{ value: "360°", label: "Visão de leads" }, { value: "Multi", suffix: "-marca", label: "Rede de dealers" }, { value: "BI", label: "Acompanhamento" }],
+    note: "Gestão de leads para uma das maiores redes automóveis do mundo.",
   },
   {
-    client: "RetailCo Iberia", sector: "Retail", year: "2023",
-    challenge: "Plataforma monolítica a limitar expansão omnichannel ibérica.",
-    strategy: "Headless commerce com PIM unificado e edge rendering para LCP <1.2s.",
-    solution: "Next.js + Shopify + M.Analytics + edge cache global GCP.",
-    stack: ["Next.js", "Shopify", "M.Analytics", "GCP", "Algolia"],
-    kpis: [{ value: 3.2, suffix: "x", label: "Conversão checkout" }, { value: 65, suffix: "%", label: "Time-to-market" }, { value: 18, suffix: "M", prefix: "€", label: "GMV adicional" }],
-    testimonial: { quote: "Pensam em décadas. Raro encontrar este nível de parceria.", who: "Pedro Vasconcelos", role: "CEO" },
+    client: "Homologacoes.net", sector: "Plataforma digital", year: "Web Platform",
+    challenge: "Digitalizar e centralizar processos de homologação num portal acessível e fiável.",
+    strategy: "Plataforma web chave-na-mão, com gestão documental e fluxos de processo online.",
+    solution: "Portal aplicacional desenvolvido à medida, com integrações e suporte aplicacional contínuo.",
+    stack: ["Web Platform", "Sistemas custom", "Integrações", "Suporte SLA"],
+    kpis: [{ value: "100%", label: "Processo online" }, { value: "Self", suffix: "-service", label: "Acesso digital" }, { value: "SLA", label: "Suporte contínuo" }],
+    note: "Plataforma digital chave-na-mão construída e mantida pela Moonlight.",
   },
   {
-    client: "Lusiada Energy", sector: "Energy / IoT", year: "2024",
-    challenge: "Smart grid nacional com 1.4M sensores e zero observabilidade unificada.",
-    strategy: "Plataforma IoT edge-first com AI on-device e digital twin AR para manutenção.",
-    solution: "MQTT broker geo-distribuído, TimescaleDB hypertables, modelos preditivos.",
-    stack: ["MQTT", "TimescaleDB", "Edge AI", "AR", "Rust"],
-    kpis: [{ value: 1.4, suffix: "M", label: "Sensores ativos" }, { value: 42, suffix: "%", label: "Eficiência energética" }, { value: 99.99, suffix: "%", label: "Uptime garantido" }],
-    testimonial: { quote: "Infraestrutura crítica. Não há board sem o M.Analytics aberto.", who: "Inês Marques", role: "CDO" },
+    client: "Rubisgás", sector: "Energia", year: "Business Systems",
+    challenge: "Suportar a operação de distribuição de energia com sistemas de negócio robustos.",
+    strategy: "Desenvolvimento e integração de sistemas aplicacionais alinhados com os processos do negócio.",
+    solution: "Sistemas à medida com integração de dados e suporte SLA para operação crítica.",
+    stack: ["Sistemas custom", "Integração de dados", "BI", "Suporte SLA"],
+    kpis: [{ value: "B2B", label: "Operação crítica" }, { value: "Dados", label: "Integração" }, { value: "SLA", label: "Suporte" }],
+    note: "Sistemas de negócio para um operador de referência no setor energético.",
   },
 ];
 
@@ -167,12 +167,12 @@ function CaseStudy({ c, index }: { c: any; index: number }) {
               </div>
             </div>
 
-            <blockquote className="mt-12 border-l-2 border-primary pl-6 max-w-3xl">
-              <p className="font-display text-xl md:text-2xl leading-snug italic">"{c.testimonial.quote}"</p>
-              <footer className="mt-4 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                <span className="text-foreground">{c.testimonial.who}</span> · {c.testimonial.role}, {c.client}
-              </footer>
-            </blockquote>
+            <div className="mt-12 border-l-2 border-primary pl-6 max-w-3xl">
+              <p className="font-display text-xl md:text-2xl leading-snug">{c.note}</p>
+              <div className="mt-4 font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
+                <span className="text-foreground">{c.client}</span> · Projeto Moonlight
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

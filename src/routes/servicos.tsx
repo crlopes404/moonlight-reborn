@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Code2, BrainCircuit, Boxes, Briefcase, Database, Headphones, ArrowRight } from "lucide-react";
+import { Code2, BarChart3, Briefcase, Boxes, Headphones, ArrowRight } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
 import { CTABanner } from "@/components/CTABanner";
 
@@ -8,9 +8,9 @@ export const Route = createFileRoute("/servicos")({
   head: () => ({
     meta: [
       { title: "Serviços — Moonlight" },
-      { name: "description", content: "Software Development, Business Intelligence, IoT/AR/VR, IT Consulting e Big Data — engenharia de excelência." },
+      { name: "description", content: "Software Development, BI & Marketing, IT Consulting, IoT/AR/VR e Suporte SLA — engenharia de excelência desde 1998." },
       { property: "og:title", content: "Serviços — Moonlight" },
-      { property: "og:description", content: "Seis disciplinas, uma filosofia." },
+      { property: "og:description", content: "Cinco disciplinas, uma filosofia." },
     ],
   }),
   component: Servicos,
@@ -19,51 +19,43 @@ export const Route = createFileRoute("/servicos")({
 const services = [
   {
     icon: Code2, title: "Software Development", n: "01",
-    desc: "Desenhamos aplicações web, mobile e desktop com arquiteturas escaláveis e DevOps moderno.",
-    tech: ["TypeScript", "React", "Node", "Kubernetes", "Rust"],
+    desc: "Aplicações móveis híbridas, plataformas SaaS e sistemas à medida com arquiteturas escaláveis e DevOps moderno.",
+    tech: ["Mobile híbrido", "SaaS", "Sistemas custom", "React", "Node", "Cloud"],
     process: ["Discovery", "Architecture", "Build", "Ship", "Iterate"],
-    benefits: ["Time-to-market 40% mais rápido", "Cobertura de testes >85%", "Zero-downtime deploys"],
-    cases: "ERPs, super-apps, plataformas SaaS, marketplaces",
+    benefits: ["Apps híbridas multi-plataforma", "Plataformas SaaS multi-tenant", "Sistemas à medida do negócio"],
+    cases: "ERPs, portais, super-apps, plataformas SaaS, sistemas internos",
   },
   {
-    icon: BrainCircuit, title: "Business Intelligence", n: "02",
-    desc: "Transformamos dados em decisões — modelos preditivos, dashboards executivos, cultura data-driven.",
-    tech: ["Snowflake", "dbt", "Looker", "Python", "PowerBI"],
-    process: ["Audit", "Data modeling", "Pipelines", "Dashboards", "Adoption"],
-    benefits: ["KPIs em tempo real", "Modelos preditivos custom", "Self-service para o C-level"],
-    cases: "Reporting financeiro, forecasting, churn analysis",
+    icon: BarChart3, title: "BI & Marketing", n: "02",
+    desc: "Analytics, sistemas de geração e gestão de leads e operações de contact center — dados que convertem.",
+    tech: ["Analytics", "Lead systems", "Contact center", "B.Analytics", "Dashboards"],
+    process: ["Audit", "Data modeling", "Dashboards", "Lead ops", "Adoption"],
+    benefits: ["Analytics e KPIs em tempo real", "Sistemas de gestão de leads", "Contact center integrado"],
+    cases: "Lead management, reporting executivo, campanhas data-driven",
   },
   {
-    icon: Boxes, title: "IoT", n: "03",
-    desc: "Dispositivos conectados, edge computing e plataformas de telemetria à escala.",
-    tech: ["MQTT", "TimescaleDB", "AWS IoT", "Edge AI", "LoRaWAN"],
-    process: ["PoC", "Hardware spec", "Edge dev", "Cloud", "Operate"],
-    benefits: ["Latência sub-50ms", "Milhões de devices", "Manutenção preditiva"],
-    cases: "Smart grids, indústria 4.0, agricultura de precisão",
+    icon: Briefcase, title: "IT Consulting", n: "03",
+    desc: "Arquitetura de sistemas, auditorias técnicas e equipas dedicadas em modelo TaaS (Team as a Service).",
+    tech: ["Arquitetura", "Auditorias", "TaaS", "Cloud", "Segurança"],
+    process: ["Diagnóstico", "Roadmap", "Auditoria", "Execução", "Handover"],
+    benefits: ["Arquitetura empresarial sólida", "Auditorias técnicas e de segurança", "Equipas TaaS dedicadas"],
+    cases: "Migração cloud, modernização legacy, reforço de equipas",
   },
   {
-    icon: Headphones, title: "AR / VR", n: "04",
-    desc: "Experiências imersivas para enterprise — training, simulação e visualização 3D.",
-    tech: ["Unity", "Unreal", "WebXR", "Three.js", "Vision Pro"],
-    process: ["Concept", "Storyboard", "3D assets", "Build", "Deploy"],
-    benefits: ["Retenção de training 4×", "Custo de erro próximo de zero", "Onboarding remoto"],
-    cases: "Formação industrial, retail virtual, prototipagem",
+    icon: Boxes, title: "IoT / AR / VR", n: "04",
+    desc: "Dispositivos conectados, edge computing e experiências imersivas de realidade aumentada e virtual.",
+    tech: ["IoT", "Edge", "AR", "VR", "WebXR", "Unity"],
+    process: ["PoC", "Spec", "Build", "Integrar", "Operar"],
+    benefits: ["Telemetria e dispositivos conectados", "Experiências AR/VR enterprise", "Visualização 3D e simulação"],
+    cases: "Indústria 4.0, formação imersiva, smart devices",
   },
   {
-    icon: Briefcase, title: "IT Consulting", n: "05",
-    desc: "Estratégia tecnológica, transformação digital e arquitetura empresarial.",
-    tech: ["TOGAF", "Cloud-native", "Zero Trust", "GenAI strategy"],
-    process: ["Diagnóstico", "Roadmap", "PoCs", "Execução", "Handover"],
-    benefits: ["Redução TCO 30%+", "Roadmap defensável a 5 anos", "Buy-in executivo"],
-    cases: "Migração cloud, modernização legacy, AI adoption",
-  },
-  {
-    icon: Database, title: "Big Data", n: "06",
-    desc: "Pipelines em larga escala, data lakes e processamento em tempo real.",
-    tech: ["Kafka", "Spark", "Iceberg", "Flink", "BigQuery"],
-    process: ["Source mapping", "Lakehouse", "Streaming", "Quality", "Govern"],
-    benefits: ["Petabytes geridos", "Exactly-once semantics", "Data contracts"],
-    cases: "Event-driven backbones, ML feature stores, real-time fraude",
+    icon: Headphones, title: "Suporte", n: "05",
+    desc: "Help desk e suporte aplicacional com acordos de nível de serviço (SLA) e monitorização contínua.",
+    tech: ["Help desk", "SLA", "Monitorização", "Manutenção", "On-call"],
+    process: ["Onboarding", "Triagem", "Resolução", "SLA", "Melhoria"],
+    benefits: ["Help desk multi-canal", "SLA garantido e mensurável", "Manutenção evolutiva contínua"],
+    cases: "Suporte aplicacional, manutenção de plataformas, operação 24/7",
   },
 ];
 
@@ -78,8 +70,8 @@ function Servicos() {
           <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-6 font-display text-[clamp(2.8rem,8vw,7rem)] leading-[0.95] tracking-tight max-w-5xl">
             Engenharia que <span className="text-gradient">resolve</span>.
           </motion.h1>
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 text-lg text-muted-foreground max-w-2xl">
-            Seis disciplinas integradas, ao serviço de empresas que recusam soluções genéricas.
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 lead text-muted-foreground measure">
+            Cinco disciplinas integradas, ao serviço de empresas que recusam soluções genéricas.
           </motion.p>
 
           {/* Network visualization */}

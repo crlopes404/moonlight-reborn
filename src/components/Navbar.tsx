@@ -31,34 +31,45 @@ export function Navbar() {
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-3" : "py-5"}`}
+        className={`fixed inset-x-0 top-0 z-[100] transition-all duration-500 ${scrolled ? "py-2.5" : "py-4"}`}
       >
-        <div className="mx-auto max-w-7xl px-6">
-          <div className={`flex items-center justify-between rounded-full px-4 md:px-6 py-3 transition-all ${scrolled ? "glass-elev neon-shadow" : ""}`}>
-            <Link to="/" className="flex items-center gap-2.5 group">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Always-on glass: sticky blur prevents content bleeding through in light mode */}
+          <div className={`flex items-center justify-between rounded-2xl md:rounded-full px-4 md:px-6 py-2.5 nav-glass transition-all duration-500 ${scrolled ? "neon-shadow scale-[0.99]" : ""}`}>
+            <Link to="/" className="flex items-center gap-2.5 group shrink-0" aria-label="Moonlight — início">
               <Logo />
               <span className="font-display text-lg tracking-tight">
                 Moonlight<span className="text-primary">.</span>
               </span>
             </Link>
 
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-0.5" aria-label="Principal">
               {links.map((l) => (
                 <Link
                   key={l.to}
                   to={l.to}
                   activeOptions={{ exact: l.to === "/" }}
-                  className="relative px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors group [&.active]:text-foreground"
+                  className="relative px-3.5 py-2 text-sm font-medium text-muted-foreground rounded-full transition-colors duration-200 hover:text-foreground [&.active]:text-foreground"
                 >
-                  {l.label}
-                  <span className="absolute left-4 right-4 bottom-1 h-px bg-gradient-to-r from-primary to-accent scale-x-0 group-hover:scale-x-100 group-[.active]:scale-x-100 transition-transform origin-left" />
+                  {({ isActive }) => (
+                    <>
+                      {isActive && (
+                        <motion.span
+                          layoutId="nav-active"
+                          transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                          className="absolute inset-0 rounded-full bg-primary/12 ring-1 ring-primary/25"
+                        />
+                      )}
+                      <span className="relative z-10">{l.label}</span>
+                    </>
+                  )}
                 </Link>
               ))}
             </nav>
 
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 shrink-0">
               <ThemeToggle theme={theme} toggle={toggle} />
-              <button className="md:hidden text-foreground p-2" onClick={() => setOpen(true)} aria-label="Open menu">
+              <button className="md:hidden text-foreground p-2 -mr-1" onClick={() => setOpen(true)} aria-label="Abrir menu">
                 <Menu className="size-5" />
               </button>
             </div>
@@ -68,7 +79,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {open && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[60] md:hidden">
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[120] md:hidden">
             <div className="absolute inset-0 bg-background/90 backdrop-blur-2xl" />
             <motion.div
               initial={{ clipPath: "circle(0% at 90% 5%)" }}
@@ -80,10 +91,15 @@ export function Navbar() {
               <div className="flex justify-end">
                 <button onClick={() => setOpen(false)} className="p-2" aria-label="Close"><X className="size-6" /></button>
               </div>
-              <nav className="mt-12 flex flex-col gap-6">
+              <nav className="mt-12 flex flex-col gap-6" aria-label="Mobile">
                 {links.map((l, i) => (
                   <motion.div key={l.to} initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 + i * 0.05 }}>
-                    <Link to={l.to} onClick={() => setOpen(false)} className="text-4xl font-display tracking-tight">
+                    <Link
+                      to={l.to}
+                      activeOptions={{ exact: l.to === "/" }}
+                      onClick={() => setOpen(false)}
+                      className="text-4xl font-display tracking-tight text-muted-foreground transition-colors [&.active]:text-foreground [&.active]:[text-shadow:0_0_30px_var(--glow)]"
+                    >
                       {l.label}
                     </Link>
                   </motion.div>

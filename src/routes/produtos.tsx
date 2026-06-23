@@ -1,143 +1,122 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { Target, BarChart3, Link2, Gamepad2, ShoppingBag, ArrowRight, Check } from "lucide-react";
+import { Database, BarChart3, Cpu, Workflow, Bell, Plug, ArrowRight, Check } from "lucide-react";
 import { CTABanner } from "@/components/CTABanner";
-import mLeadsAsset from "@/assets/m-leads.png.asset.json";
-import mAnalyticsAsset from "@/assets/m-analytics.png.asset.json";
-import mChainAsset from "@/assets/m-chain.png.asset.json";
-import mGamingAsset from "@/assets/m-gaming.png.asset.json";
-import mEcommerceAsset from "@/assets/m-ecommerce.png.asset.json";
 import mLogoAsset from "@/assets/mlogo0.png.asset.json";
-
-const productImages: Record<string, string> = {
-  leads: mLeadsAsset.url,
-  analytics: mAnalyticsAsset.url,
-  chain: mChainAsset.url,
-  gaming: mGamingAsset.url,
-  ecom: mEcommerceAsset.url,
-};
 
 export const Route = createFileRoute("/produtos")({
   head: () => ({
     meta: [
-      { title: "Produtos — Moonlight · M.Leads, M.Analytics, M.Chain+, M.Gaming, Ecommerce" },
-      { name: "description", content: "Cinco produtos proprietários para sales, analytics, supply chain, AR/VR e commerce." },
-      { property: "og:title", content: "Produtos — Moonlight" },
-      { property: "og:description", content: "Um sistema orbital de tecnologia proprietária." },
+      { title: "B.Analytics — Produto Moonlight · Integração de Dados, BI & Decisão" },
+      { name: "description", content: "B.Analytics: plataforma própria da Moonlight para integração de dados, dashboards de Business Intelligence e sistemas de apoio à decisão." },
+      { property: "og:title", content: "B.Analytics — Moonlight" },
+      { property: "og:description", content: "Integração de dados + BI dashboards + sistemas de decisão." },
     ],
   }),
   component: Produtos,
 });
 
-const products = [
+const accent = "oklch(0.6 0.22 245)";
+
+const modules = [
   {
-    id: "leads", name: "M.Leads", icon: Target, tag: "Sales Intelligence",
-    color: "oklch(0.65 0.28 295)",
-    headline: "Captura, qualifica e converte — em tempo real.",
-    desc: "Plataforma de lead intelligence com scoring alimentado por IA, integrações CRM nativas e attribution multi-touch.",
-    features: ["Lead scoring em tempo real", "Integração HubSpot/Salesforce", "Attribution multi-touch", "Automação de outreach", "Dashboards comerciais"],
-    stack: ["Python", "Kafka", "PostgreSQL", "OpenAI", "Webhooks"],
-    metrics: [{ k: "Lead-to-meeting", v: "+38%" }, { k: "Tempo qualificação", v: "−72%" }, { k: "Pipeline visibility", v: "100%" }],
+    id: "integration", name: "Data Integration", icon: Database,
+    tag: "Integração de Dados",
+    headline: "Todas as fontes. Uma verdade.",
+    desc: "Conectores para ERPs, CRMs, ficheiros e APIs — dados consolidados, limpos e prontos a analisar, em tempo real.",
+    features: ["Conectores nativos a múltiplas fontes", "ETL/ELT gerido", "Qualidade e validação de dados", "Sincronização em tempo real", "Modelo de dados unificado"],
   },
   {
-    id: "analytics", name: "M.Analytics", icon: BarChart3, tag: "Business Intelligence",
-    color: "oklch(0.7 0.22 245)",
-    headline: "O sistema nervoso da decisão executiva.",
-    desc: "Dashboards executivos com modelagem preditiva, KPIs em tempo real e drill-down a qualquer dimensão do negócio.",
-    features: ["Modelos preditivos no-code", "Conectores nativos a 50+ sources", "Embedded analytics", "Alertas inteligentes", "Self-service para C-level"],
-    stack: ["Snowflake", "dbt", "React", "Apache Superset", "Python"],
-    metrics: [{ k: "Time-to-insight", v: "−85%" }, { k: "Adoção C-level", v: "94%" }, { k: "Custos BI", v: "−40%" }],
+    id: "dashboards", name: "BI Dashboards", icon: BarChart3,
+    tag: "Business Intelligence",
+    headline: "O negócio, à velocidade do olhar.",
+    desc: "Dashboards executivos com KPIs em tempo real, drill-down a qualquer dimensão e relatórios self-service para todas as áreas.",
+    features: ["KPIs e dashboards em tempo real", "Drill-down multi-dimensão", "Relatórios self-service", "Visualizações interativas", "Exportação e partilha"],
   },
   {
-    id: "chain", name: "M.Chain+", icon: Link2, tag: "Supply Chain",
-    color: "oklch(0.7 0.3 330)",
-    headline: "Rastreabilidade total. Otimização automática.",
-    desc: "Orquestração end-to-end da supply chain com rastreabilidade blockchain e otimização logística por reinforcement learning.",
-    features: ["Track & trace blockchain", "Otimização de rotas RL", "Forecast de procura", "Compliance automático", "Marketplace de fornecedores"],
-    stack: ["Hyperledger", "Go", "Kubernetes", "TimescaleDB", "GraphQL"],
-    metrics: [{ k: "Custos logística", v: "−22%" }, { k: "Lead time", v: "−35%" }, { k: "OTIF", v: "98.7%" }],
-  },
-  {
-    id: "gaming", name: "M.Gaming", icon: Gamepad2, tag: "AR / VR · Gamification",
-    color: "oklch(0.75 0.2 200)",
-    headline: "Treinar, vender e formar — em mundos novos.",
-    desc: "Engine proprietário para gamificação corporativa, training imersivo e experiências AR/VR para enterprise.",
-    features: ["Editor visual de cenários", "Multi-plataforma (Vision Pro, Quest, Web)", "Analytics de performance", "Multiplayer corporativo", "LMS integrado"],
-    stack: ["Unity", "WebXR", "Three.js", "Node", "Cassandra"],
-    metrics: [{ k: "Retenção formação", v: "4×" }, { k: "Custo por trainee", v: "−60%" }, { k: "Time-to-competency", v: "−50%" }],
-  },
-  {
-    id: "ecom", name: "Ecommerce", icon: ShoppingBag, tag: "Commerce Suite",
-    color: "oklch(0.7 0.25 60)",
-    headline: "Comércio headless. Conversão sem fricção.",
-    desc: "Plataforma headless de comércio com checkout otimizado, gestão omnichannel e analytics de conversão integrados.",
-    features: ["Checkout one-page", "PIM multi-marketplace", "A/B testing nativo", "PWA & offline-first", "Pagamentos globais"],
-    stack: ["Next.js", "Stripe", "Algolia", "GraphQL", "Edge functions"],
-    metrics: [{ k: "Conversão", v: "+3.2×" }, { k: "LCP", v: "<1.2s" }, { k: "Cart abandonment", v: "−45%" }],
+    id: "decision", name: "Decision Systems", icon: Cpu,
+    tag: "Sistemas de Decisão",
+    headline: "Da análise à ação.",
+    desc: "Motores de regras, alertas inteligentes e apoio à decisão que transformam indicadores em recomendações acionáveis.",
+    features: ["Motor de regras de negócio", "Alertas e thresholds inteligentes", "Cenários e simulação", "Recomendações acionáveis", "Workflows de decisão"],
   },
 ];
 
+const metrics = [
+  { k: "Fontes integráveis", v: "50+" },
+  { k: "Tempo de insight", v: "−85%" },
+  { k: "Decisão data-driven", v: "100%" },
+];
+
+const stack = ["Data Warehouse", "ETL/ELT", "REST APIs", "Dashboards", "Cloud / On-premise", "Single Sign-On"];
+
 function Produtos() {
   const [active, setActive] = useState<number | null>(null);
-  const [pinned, setPinned] = useState<number>(0);
-  const expandedIdx = active ?? pinned;
-  const sel = products[expandedIdx];
-  const accent = sel.color;
+  const [pinned, setPinned] = useState<number>(1);
+  const idx = active ?? pinned;
+  const sel = modules[idx];
 
   return (
     <>
       {/* Hero */}
       <section className="relative pt-40 pb-12 overflow-hidden">
         <div className="relative mx-auto max-w-7xl px-6">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="font-mono text-xs uppercase tracking-[0.3em] text-primary">/ Produtos Proprietários</motion.div>
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-6 font-display text-[clamp(2.8rem,7vw,6rem)] leading-[0.95] tracking-tight max-w-5xl">
-            Um sistema orbital de <span className="text-gradient">tecnologia proprietária</span>.
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="eyebrow">/ Produto Proprietário</motion.div>
+          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="mt-6 display-1 max-w-5xl">
+            <span className="text-gradient">B.Analytics</span>
           </motion.h1>
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }} className="mt-8 lead text-muted-foreground measure">
+            A plataforma de dados da Moonlight: integração de fontes, dashboards de Business
+            Intelligence e sistemas de apoio à decisão — num único produto, construído em casa.
+          </motion.p>
         </div>
       </section>
 
       {/* Orbital + showcase */}
-      <section className="relative py-12 overflow-hidden">
+      <section className="relative section-sm overflow-hidden">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1fr_1.1fr] gap-12 items-center">
           {/* orbital */}
           <div className="relative aspect-square max-w-[600px] w-full mx-auto">
             {[0.55, 0.78, 1].map((s, i) => (
               <div key={i} className="absolute rounded-full border border-border/40" style={{ inset: `${(1 - s) * 50}%`, borderStyle: i === 1 ? "dashed" : "solid" }} />
             ))}
-            <div className="absolute left-1/2 top-1/2 size-28 -translate-x-1/2 -translate-y-1/2 rounded-full glass-elev grid place-items-center holo-border overflow-hidden dark:!bg-white dark:!border-white/80">
-              <div className="absolute inset-0 rounded-full pointer-events-none dark:bg-[radial-gradient(circle,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.85)_60%,rgba(255,255,255,0.6)_100%)]" />
-              <img src={mLogoAsset.url} alt="Moonlight" className="relative size-20 object-contain opacity-100" style={{ filter: "none" }} />
+            <div className="absolute left-1/2 top-1/2 size-32 -translate-x-1/2 -translate-y-1/2 rounded-full glass-elev grid place-items-center holo-border overflow-hidden">
+              <img src={mLogoAsset.url} alt="B.Analytics" className="relative size-16 object-contain" />
               <div className="absolute inset-0 rounded-full pointer-events-none" style={{ boxShadow: `0 0 60px ${accent}`, transition: "box-shadow 600ms" }} />
             </div>
 
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 60, repeat: Infinity, ease: "linear" }} className="absolute inset-0">
-              {products.map((p, i) => {
-                const angle = (i / products.length) * Math.PI * 2;
+            <motion.div animate={{ rotate: 360 }} transition={{ duration: 70, repeat: Infinity, ease: "linear" }} className="absolute inset-0">
+              {modules.map((m, i) => {
+                const angle = (i / modules.length) * Math.PI * 2 - Math.PI / 2;
                 const r = 47;
                 const x = 50 + Math.cos(angle) * r;
                 const y = 50 + Math.sin(angle) * r;
-                const isActive = i === expandedIdx;
+                const isActive = i === idx;
                 return (
                   <motion.button
-                    key={p.id}
+                    key={m.id}
                     data-magnetic
                     onMouseEnter={() => setActive(i)}
                     onMouseLeave={() => setActive(null)}
                     onFocus={() => setActive(i)}
                     onBlur={() => setActive(null)}
                     onClick={() => setPinned(i)}
-                    className="absolute -translate-x-1/2 -translate-y-1/2"
+                    aria-label={m.name}
+                    className="absolute -translate-x-1/2 -translate-y-1/2 rounded-2xl"
                     style={{ left: `${x}%`, top: `${y}%` }}
-                    whileHover={{ scale: 1.15 }}
+                    whileHover={{ scale: 1.12 }}
                   >
                     <motion.div
                       animate={{ rotate: -360 }}
-                      transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                      className={`size-20 md:size-24 rounded-2xl glass grid place-items-center transition-all overflow-hidden p-2 dark:!bg-[rgba(216,197,255,0.18)] dark:hover:!bg-[rgba(216,197,255,0.26)] ${isActive ? "holo-border" : ""}`}
-                      style={{ boxShadow: isActive ? `0 0 40px ${p.color}, inset 0 1px 0 oklch(1 0 0 / 0.1)` : undefined }}
+                      transition={{ duration: 70, repeat: Infinity, ease: "linear" }}
+                      className={`size-24 md:size-28 rounded-2xl glass grid place-items-center transition-all ${isActive ? "holo-border" : ""}`}
+                      style={{ boxShadow: isActive ? `0 0 40px ${accent}, inset 0 1px 0 oklch(1 0 0 / 0.1)` : undefined }}
                     >
-                      <img src={productImages[p.id]} alt={p.name} className="max-w-full max-h-full object-contain" />
+                      <div className="text-center px-2">
+                        <m.icon className="size-6 mx-auto mb-1.5 text-primary" />
+                        <div className="text-[10px] font-mono uppercase tracking-wider leading-tight">{m.name}</div>
+                      </div>
                     </motion.div>
                   </motion.button>
                 );
@@ -156,12 +135,12 @@ function Produtos() {
                 transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 className="glass-elev rounded-3xl p-8 md:p-10 holo-border relative overflow-hidden"
               >
-                <div className="absolute -top-20 -right-20 size-64 rounded-full pointer-events-none" style={{ background: sel.color, opacity: 0.2, filter: "blur(60px)" }} />
+                <div className="absolute -top-20 -right-20 size-64 rounded-full pointer-events-none" style={{ background: accent, opacity: 0.18, filter: "blur(60px)" }} />
                 <div className="font-mono text-xs uppercase tracking-[0.25em] text-muted-foreground">
-                  {String(expandedIdx + 1).padStart(2, "0")} / {String(products.length).padStart(2, "0")} · {sel.tag}
+                  {String(idx + 1).padStart(2, "0")} / {String(modules.length).padStart(2, "0")} · {sel.tag}
                 </div>
-                <h3 className="mt-3 font-display text-4xl md:text-5xl tracking-tight">{sel.name}</h3>
-                <p className="mt-2 text-lg text-primary">{sel.headline}</p>
+                <h2 className="mt-3 heading-3 tracking-tight">{sel.name}</h2>
+                <p className="mt-2 lead text-primary">{sel.headline}</p>
                 <p className="mt-5 text-muted-foreground leading-relaxed">{sel.desc}</p>
 
                 {/* mock dashboard */}
@@ -172,75 +151,77 @@ function Produtos() {
                       <motion.div
                         key={i}
                         initial={{ height: 0 }}
-                        animate={{ height: `${20 + Math.sin(i * 0.6 + expandedIdx) * 30 + Math.random() * 40}%` }}
+                        animate={{ height: `${20 + Math.sin(i * 0.6 + idx) * 30 + ((i * 13) % 40)}%` }}
                         transition={{ delay: i * 0.02, duration: 0.6 }}
                         className="flex-1 rounded-sm"
-                        style={{ background: `linear-gradient(to top, ${sel.color}, transparent)` }}
+                        style={{ background: `linear-gradient(to top, ${accent}, transparent)` }}
                       />
                     ))}
                   </div>
                 </div>
 
-                {/* metrics */}
-                <div className="mt-6 grid grid-cols-3 gap-3">
-                  {sel.metrics.map((m) => (
-                    <div key={m.k} className="glass rounded-lg p-3 text-center">
-                      <div className="font-display text-2xl text-gradient">{m.v}</div>
-                      <div className="mt-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{m.k}</div>
-                    </div>
+                {/* capabilities */}
+                <ul className="mt-6 grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                  {sel.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2.5 text-sm">
+                      <Check className="size-4 text-primary mt-0.5 shrink-0" />
+                      <span>{f}</span>
+                    </li>
                   ))}
-                </div>
+                </ul>
               </motion.div>
             </AnimatePresence>
           </div>
         </div>
       </section>
 
-      {/* Detailed product expansion */}
-      <section className="relative py-24">
-        <div className="mx-auto max-w-7xl px-6">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={sel.id + "-detail"}
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5 }}
-              className="grid md:grid-cols-2 gap-6"
-            >
-              <div className="glass-elev rounded-3xl p-8">
-                <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Capabilities</div>
-                <ul className="space-y-3">
-                  {sel.features.map((f) => (
-                    <li key={f} className="flex items-start gap-3">
-                      <Check className="size-4 text-primary mt-0.5 shrink-0" />
-                      <span>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="glass-elev rounded-3xl p-8">
-                <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Technology stack</div>
-                <div className="flex flex-wrap gap-2">
-                  {sel.stack.map((t) => (
-                    <span key={t} className="rounded-md glass px-3 py-1.5 text-xs font-mono">{t}</span>
-                  ))}
+      {/* Why B.Analytics */}
+      <section className="section">
+        <div className="mx-auto max-w-7xl px-6 grid md:grid-cols-2 gap-6">
+          <div className="glass-elev rounded-3xl p-8">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">O que entrega</div>
+            <ul className="space-y-3">
+              {[
+                { icon: Plug, t: "Integração de dados de qualquer fonte" },
+                { icon: Workflow, t: "Pipelines de dados governados e auditáveis" },
+                { icon: BarChart3, t: "Dashboards de BI para todas as áreas" },
+                { icon: Bell, t: "Alertas inteligentes e proativos" },
+                { icon: Cpu, t: "Sistemas de apoio à decisão" },
+              ].map(({ icon: Icon, t }) => (
+                <li key={t} className="flex items-start gap-3">
+                  <span className="size-8 rounded-lg glass grid place-items-center shrink-0"><Icon className="size-4 text-primary" /></span>
+                  <span className="pt-1.5">{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="glass-elev rounded-3xl p-8">
+            <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Resultados típicos</div>
+            <div className="grid grid-cols-3 gap-3">
+              {metrics.map((m) => (
+                <div key={m.k} className="glass rounded-xl p-4 text-center">
+                  <div className="font-display text-2xl text-gradient">{m.v}</div>
+                  <div className="mt-1 text-[10px] font-mono uppercase tracking-wider text-muted-foreground">{m.k}</div>
                 </div>
-                <div className="mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Business benefits</div>
-                <p className="text-sm text-muted-foreground">
-                  Implementação chave-na-mão em 6–12 semanas. Hospedagem em cloud privada
-                  ou managed por nós. SLA 99.9% incluído.
-                </p>
-                <button data-magnetic className="mt-6 inline-flex items-center gap-2 text-sm text-primary group">
-                  Pedir demo <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
-                </button>
-              </div>
-            </motion.div>
-          </AnimatePresence>
+              ))}
+            </div>
+            <div className="mt-8 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-3">Tecnologia & deployment</div>
+            <div className="flex flex-wrap gap-2">
+              {stack.map((t) => (
+                <span key={t} className="rounded-md glass px-3 py-1.5 text-xs font-mono">{t}</span>
+              ))}
+            </div>
+            <p className="mt-6 text-sm text-muted-foreground">
+              Disponível em cloud ou on-premise, com integração e suporte SLA da Moonlight.
+            </p>
+            <button data-magnetic className="mt-6 inline-flex items-center gap-2 text-sm text-primary group">
+              Pedir demo <ArrowRight className="size-3.5 transition-transform group-hover:translate-x-1" />
+            </button>
+          </div>
         </div>
       </section>
 
-      <CTABanner eyebrow="demo" title="Vê os produtos a funcionar em ambiente real." cta="Agendar demo" />
+      <CTABanner eyebrow="demo" title="Vê o B.Analytics a funcionar com os teus dados." cta="Agendar demo" />
     </>
   );
 }
