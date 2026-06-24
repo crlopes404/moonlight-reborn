@@ -30,11 +30,11 @@ export function Footer() {
               software, BI e consultoria. <span className="text-foreground">O futuro não espera.</span>
             </p>
             <motion.a
-              href="mailto:clopes@moonlight.pt"
+              href="mailto:suporte@moonlight.pt"
               data-magnetic
               className="mt-6 inline-flex items-center gap-3 text-sm font-mono group"
             >
-              clopes@moonlight.pt
+              suporte@moonlight.pt
               <span className="size-8 rounded-full glass grid place-items-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                 <ArrowUpRight className="size-3.5" />
               </span>
@@ -54,7 +54,7 @@ export function Footer() {
             <div className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground mb-4">Sede</div>
             <p className="text-sm">
               Portugal<br />
-              <a href="mailto:clopes@moonlight.pt" className="hover:text-primary transition-colors">clopes@moonlight.pt</a><br />
+              <a href="mailto:suporte@moonlight.pt" className="hover:text-primary transition-colors">suporte@moonlight.pt</a><br />
               moonlight.pt
             </p>
             <div className="mt-5 flex gap-3">

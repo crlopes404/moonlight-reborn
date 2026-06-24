@@ -3,10 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { Mail, ArrowRight, Plus, Minus, FileText, Sparkles, Clock, ShieldCheck } from "lucide-react";
 import { SectionHeader } from "@/components/SectionHeader";
-import { RobotScene } from "@/components/RobotScene";
-
-// Published Spline embed (my.spline.design). Frameless + transparent.
-const SPLINE_EMBED = "https://my.spline.design/r4xbot-bBE9p93DM1BWoNlh78sfpezt/";
 
 export const Route = createFileRoute("/contacto")({
   head: () => ({
@@ -43,54 +39,41 @@ function Contacto() {
   return (
     <>
       {/* ───────────────────────── Hero ───────────────────────── */}
-      <section className="relative pt-32 md:pt-40 pb-12 md:pb-20 overflow-hidden">
-        <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 70% 50% at 80% 30%, var(--glow), transparent 60%)" }} />
+      <section className="relative pt-32 md:pt-44 pb-12 md:pb-16 overflow-hidden">
+        <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 15%, var(--glow), transparent 60%)" }} />
 
-        <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-8 items-center">
-          {/* Text — left on desktop, top on mobile/tablet */}
-          <div className="text-center lg:text-left order-1">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="eyebrow lg:justify-start">/ Contacto</motion.div>
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="mt-6 font-display text-[clamp(2.8rem,8vw,6rem)] leading-[0.92] tracking-tight"
-            >
-              Vamos <span className="text-gradient italic font-light">conversar</span>.
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.35 }}
-              className="mt-7 lead text-muted-foreground measure mx-auto lg:mx-0"
-            >
-              Conta-nos o desafio. Voltamos com arquitetura, prazos e orçamento em
-              <span className="text-foreground font-medium"> 24h úteis</span>.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-3"
-            >
-              <button data-magnetic onClick={scrollToForm} className="btn-magnetic btn-primary">
-                <span className="inline-flex items-center gap-2">Iniciar projeto <ArrowRight className="size-4" /></span>
-              </button>
-              <a href="mailto:clopes@moonlight.pt" data-magnetic className="btn-magnetic btn-ghost">
-                <span className="inline-flex items-center gap-2"><Mail className="size-4" /> clopes@moonlight.pt</span>
-              </a>
-            </motion.div>
-          </div>
-
-          {/* Robot — right on desktop, below text on mobile/tablet. min-h prevents head/arms clipping. */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="order-2 relative w-full h-[340px] sm:h-[420px] lg:h-[560px]"
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="eyebrow">/ Contacto</motion.div>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+            className="mt-6 font-display text-[clamp(2.8rem,8vw,6rem)] leading-[0.92] tracking-tight"
           >
-            <RobotScene embed={SPLINE_EMBED} />
+            Vamos <span className="text-gradient italic font-light">conversar</span>.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.35 }}
+            className="mt-7 lead text-muted-foreground measure mx-auto"
+          >
+            Conta-nos o desafio. Voltamos com arquitetura, prazos e orçamento em
+            <span className="text-foreground font-medium"> 24h úteis</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="mt-9 flex flex-wrap items-center justify-center gap-3"
+          >
+            <button data-magnetic onClick={scrollToForm} className="btn-magnetic btn-primary">
+              <span className="inline-flex items-center gap-2">Iniciar projeto <ArrowRight className="size-4" /></span>
+            </button>
+            <a href="mailto:suporte@moonlight.pt" data-magnetic className="btn-magnetic btn-ghost">
+              <span className="inline-flex items-center gap-2"><Mail className="size-4" /> suporte@moonlight.pt</span>
+            </a>
           </motion.div>
         </div>
       </section>
@@ -259,7 +242,7 @@ function Contacto() {
       <section className="relative section-sm text-center">
         <div className="mx-auto max-w-3xl px-6">
           <h3 className="font-display text-4xl md:text-5xl tracking-tight">
-            Ou simplesmente <a href="mailto:clopes@moonlight.pt" data-magnetic className="text-gradient">manda-nos um email</a>.
+            Ou simplesmente <a href="mailto:suporte@moonlight.pt" data-magnetic className="text-gradient">manda-nos um email</a>.
           </h3>
         </div>
       </section>
