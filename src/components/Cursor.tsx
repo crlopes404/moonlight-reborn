@@ -37,7 +37,7 @@ export function Cursor() {
     <>
       <div
         ref={dot}
-        className="pointer-events-none fixed left-0 top-0 z-[100] -ml-[3px] -mt-[3px] h-1.5 w-1.5 rounded-full"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] -ml-[3px] -mt-[3px] h-1.5 w-1.5 rounded-full"
         style={{
           backgroundColor: "rgba(216, 197, 255, 0.22)",
           boxShadow: "0 0 10px rgba(216, 197, 255, 0.25), 0 0 3px rgba(216, 197, 255, 0.2)",
@@ -45,7 +45,7 @@ export function Cursor() {
       />
       <div
         ref={ring}
-        className="pointer-events-none fixed left-0 top-0 z-[100] rounded-full transition-[width,height,margin,opacity] duration-200"
+        className="pointer-events-none fixed left-0 top-0 z-[9999] rounded-full transition-[width,height,margin,opacity] duration-200"
         style={{
           width: hover ? 56 : 32,
           height: hover ? 56 : 32,

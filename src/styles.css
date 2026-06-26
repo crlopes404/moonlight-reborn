@@ -88,6 +88,10 @@ html, body {
 body {
   transition: background-color 600ms ease, color 600ms ease;
   overflow-x: hidden;
+  /* Common isolation group so the custom cursor's mix-blend-mode/backdrop-filter
+     composites consistently over promoted layers (transform/filter/backdrop-filter/
+     isolation) used by cards, buttons and sections across the whole site. */
+  isolation: isolate;
 }
 
 /* Ambient body backdrop */
