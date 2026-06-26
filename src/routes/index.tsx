@@ -37,6 +37,7 @@ const casesPreview = [
 ];
 
 function Index() {
+  const anos = new Date().getFullYear() - 1998;
   return (
     <>
       <Hero />
@@ -45,7 +46,7 @@ function Index() {
       <section className="section">
         <div className="mx-auto max-w-7xl px-6 grid lg:grid-cols-2 gap-16 items-center">
           <div>
-            <SectionHeader eyebrow="Quem Somos" title="28 anos a desenhar o amanhã." />
+            <SectionHeader eyebrow="Quem Somos" title={`${anos} anos a desenhar o amanhã.`} />
             <p className="mt-6 lead text-muted-foreground measure">
               Fundada em 1998, a <span className="text-foreground font-medium">Moonlight Comunicação
               Global</span> é uma software house portuguesa focada em desenvolvimento à medida,
@@ -61,7 +62,7 @@ function Index() {
             <div className="absolute inset-16 rounded-full border border-dashed border-border/40 animate-[orbit-counter_40s_linear_infinite]" />
             <div className="absolute inset-0 grid place-items-center">
               <div className="text-center">
-                <div className="font-display text-7xl text-gradient">28</div>
+                <div className="font-display text-7xl text-gradient">{anos}</div>
                 <div className="font-mono text-xs uppercase tracking-[0.3em] text-muted-foreground mt-2">anos · 1998–2026</div>
               </div>
             </div>

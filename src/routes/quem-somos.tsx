@@ -34,8 +34,10 @@ const values = [
   { icon: Users, title: "Parceria de longo prazo", desc: "Clientes connosco há anos. Não fazemos drive-by consulting." },
 ];
 
+const anos = new Date().getFullYear() - 1998;
+
 const stats = [
-  { v: "28", l: "Anos de operação" },
+  { v: String(anos), l: "Anos de operação" },
   { v: "1998", l: "Fundação" },
   { v: "5", l: "Áreas de serviço" },
   { v: "SLA", l: "Suporte garantido" },
@@ -63,7 +65,7 @@ function QuemSomos() {
           </motion.h1>
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 lead text-muted-foreground measure">
             Somos a Moonlight Comunicação Global — software house portuguesa fundada em 1998.
-            Há 28 anos a transformar empresas com produtos, plataformas e equipas que recusam
+            Há {anos} anos a transformar empresas com produtos, plataformas e equipas que recusam
             o "suficiente".
           </motion.p>
         </div>
