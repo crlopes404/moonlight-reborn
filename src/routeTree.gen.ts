@@ -14,6 +14,7 @@ import { Route as ServicosRouteImport } from './routes/servicos'
 import { Route as QuemSomosRouteImport } from './routes/quem-somos'
 import { Route as ProdutosRouteImport } from './routes/produtos'
 import { Route as LabLogoRouteImport } from './routes/lab-logo'
+import { Route as HomeRouteImport } from './routes/home'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as IndexRouteImport } from './routes/index'
@@ -43,6 +44,11 @@ const LabLogoRoute = LabLogoRouteImport.update({
   path: '/lab-logo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HomeRoute = HomeRouteImport.update({
+  id: '/home',
+  path: '/home',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -63,6 +69,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contacto': typeof ContactoRoute
+  '/home': typeof HomeRoute
   '/lab-logo': typeof LabLogoRoute
   '/produtos': typeof ProdutosRoute
   '/quem-somos': typeof QuemSomosRoute
@@ -73,6 +80,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contacto': typeof ContactoRoute
+  '/home': typeof HomeRoute
   '/lab-logo': typeof LabLogoRoute
   '/produtos': typeof ProdutosRoute
   '/quem-somos': typeof QuemSomosRoute
@@ -84,6 +92,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/case-studies': typeof CaseStudiesRoute
   '/contacto': typeof ContactoRoute
+  '/home': typeof HomeRoute
   '/lab-logo': typeof LabLogoRoute
   '/produtos': typeof ProdutosRoute
   '/quem-somos': typeof QuemSomosRoute
@@ -96,6 +105,7 @@ export interface FileRouteTypes {
     | '/'
     | '/case-studies'
     | '/contacto'
+    | '/home'
     | '/lab-logo'
     | '/produtos'
     | '/quem-somos'
@@ -106,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/case-studies'
     | '/contacto'
+    | '/home'
     | '/lab-logo'
     | '/produtos'
     | '/quem-somos'
@@ -116,6 +127,7 @@ export interface FileRouteTypes {
     | '/'
     | '/case-studies'
     | '/contacto'
+    | '/home'
     | '/lab-logo'
     | '/produtos'
     | '/quem-somos'
@@ -127,6 +139,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
   ContactoRoute: typeof ContactoRoute
+  HomeRoute: typeof HomeRoute
   LabLogoRoute: typeof LabLogoRoute
   ProdutosRoute: typeof ProdutosRoute
   QuemSomosRoute: typeof QuemSomosRoute
@@ -171,6 +184,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LabLogoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/home': {
+      id: '/home'
+      path: '/home'
+      fullPath: '/home'
+      preLoaderRoute: typeof HomeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
@@ -199,6 +219,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CaseStudiesRoute: CaseStudiesRoute,
   ContactoRoute: ContactoRoute,
+  HomeRoute: HomeRoute,
   LabLogoRoute: LabLogoRoute,
   ProdutosRoute: ProdutosRoute,
   QuemSomosRoute: QuemSomosRoute,

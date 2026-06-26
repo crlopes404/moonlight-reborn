@@ -59,7 +59,7 @@ export function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
-          className="mt-8 max-w-2xl lead text-muted-foreground text-balance"
+          className="mt-8 max-w-2xl lead text-foreground/80 dark:text-muted-foreground text-balance"
         >
           Software à medida, Business Intelligence e consultoria IT — desde{" "}
           <span className="text-foreground font-medium">1998</span> a transformar empresas

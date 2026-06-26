@@ -36,7 +36,7 @@ const casesPreview = [
   { client: "Rubisgás", sector: "Energia", kpi: "Sistemas de negócio" },
 ];
 
-function Index() {
+export function Index() {
   const anos = new Date().getFullYear() - 1998;
   return (
     <>
