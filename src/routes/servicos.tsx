@@ -73,33 +73,6 @@ function Servicos() {
           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="mt-8 lead text-muted-foreground measure">
             Cinco disciplinas integradas, ao serviço de empresas que recusam soluções genéricas.
           </motion.p>
-
-          {/* Network visualization */}
-          <div className="mt-20 relative h-64 hidden md:block">
-            <svg className="absolute inset-0 w-full h-full" viewBox="0 0 1200 250">
-              <defs>
-                <linearGradient id="netg" x1="0" x2="1">
-                  <stop offset="0%" stopColor="var(--color-primary)" stopOpacity="0.6" />
-                  <stop offset="100%" stopColor="var(--color-electric)" stopOpacity="0.2" />
-                </linearGradient>
-              </defs>
-              {services.map((_, i) => {
-                const x = 100 + (i * 1000) / (services.length - 1);
-                return (
-                  <g key={i}>
-                    {services.map((__, j) => j > i && (
-                      <line key={j} x1={x} y1={125} x2={100 + (j * 1000) / (services.length - 1)} y2={125} stroke="url(#netg)" strokeWidth="1" />
-                    ))}
-                    <circle cx={x} cy={125} r="8" fill="var(--color-primary)" />
-                    <circle cx={x} cy={125} r="20" fill="none" stroke="var(--color-primary)" strokeOpacity="0.3">
-                      <animate attributeName="r" from="8" to="30" dur="2s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
-                      <animate attributeName="opacity" from="0.6" to="0" dur="2s" begin={`${i * 0.3}s`} repeatCount="indefinite" />
-                    </circle>
-                  </g>
-                );
-              })}
-            </svg>
-          </div>
         </div>
       </section>
 
