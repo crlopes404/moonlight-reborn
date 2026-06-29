@@ -9,15 +9,9 @@ export function Hero() {
   return (
     <section id="top" className="relative min-h-screen w-full overflow-hidden">
       {/* Animated grid */}
-      <div className="absolute inset-0 bg-grid bg-grid-fade opacity-60" />
+      <div className="absolute inset-0 bg-grid bg-grid-fade opacity-50" />
 
-      {/* Radial glow */}
-      <div
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[800px] w-[800px] rounded-full opacity-60 animate-pulse-glow"
-        style={{ background: "radial-gradient(circle, oklch(0.62 0.27 295 / 0.4), transparent 60%)" }}
-      />
-
-      {/* 3D Scene */}
+      {/* Moon visual (right, half-cut) */}
       <div className="absolute inset-0 z-10">
         <ClientOnly fallback={null}>
           <MoonScene />
@@ -30,75 +24,6 @@ export function Hero() {
           className="absolute inset-x-0 h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent"
           style={{ animation: "scan 8s linear infinite" }}
         />
-      </div>
-
-      {/* Content */}
-      <div className="relative z-30 min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-mono uppercase tracking-widest text-muted-foreground mb-8"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
-          <span>Moonlight Comunicação Global · Est. 1998</span>
-          <Sparkles className="h-3 w-3 text-primary" />
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 1 }}
-          className="font-display font-semibold text-[clamp(2.8rem,9vw,8rem)] leading-[0.95] tracking-tight max-w-6xl"
-        >
-          <span className="block text-gradient">O Futuro</span>
-          <span className="block text-gradient-aurora">Não Espera</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 1 }}
-          className="mt-8 max-w-2xl lead text-foreground/80 dark:text-muted-foreground text-balance"
-        >
-          Software à medida, Business Intelligence e consultoria IT — desde{" "}
-          <span className="text-foreground font-medium">1998</span> a transformar empresas
-          do setor automóvel e enterprise com tecnologia que{" "}
-          <span className="text-foreground font-medium">antecipa o amanhã</span>.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.0, duration: 0.8 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-4"
-        >
-          <MagneticButton variant="primary" onClick={() => navigate({ to: "/contacto" })}>
-            Quero ser contactado <ArrowRight className="h-4 w-4" />
-          </MagneticButton>
-          <MagneticButton variant="ghost" onClick={() => navigate({ to: "/produtos" })}>
-            Conhecer o B.Analytics
-          </MagneticButton>
-        </motion.div>
-
-        {/* Floating HUD chips */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 1 }}
-          className="absolute bottom-10 inset-x-0 flex flex-wrap items-center justify-center gap-3 px-6"
-        >
-          {["Desde 1998", "Software à medida", "B.Analytics", "Suporte SLA"].map((t, i) => (
-            <motion.div
-              key={t}
-              animate={{ y: [0, -6, 0] }}
-              transition={{ duration: 4 + i * 0.5, repeat: Infinity, ease: "easeInOut" }}
-              className="px-3 py-1.5 glass rounded-full text-[11px] font-mono uppercase tracking-wider text-muted-foreground"
-            >
-              {t}
-            </motion.div>
-          ))}
-        </motion.div>
       </div>
 
       {/* Corner HUD */}
@@ -114,6 +39,91 @@ export function Hero() {
         </div>
         <div className="mt-1 opacity-60">UPTIME 99.99%</div>
       </div>
+
+      {/* Content — split: text left, moon (background) right */}
+      <div className="relative z-30 mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-6 pt-28 pb-28 lg:grid-cols-2">
+        {/* Left column */}
+        <div className="text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-mono uppercase tracking-widest text-muted-foreground"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-primary animate-pulse" />
+            <span>Moonlight Comunicação Global · Est. 1998</span>
+            <Sparkles className="h-3 w-3 text-primary" />
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 1 }}
+            className="mt-7 font-display font-semibold text-[clamp(2.8rem,7vw,6.5rem)] leading-[0.95] tracking-tight"
+          >
+            <span className="block text-gradient">O Futuro</span>
+            <span className="block text-gradient-aurora">Não Espera</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="mt-7 max-w-xl lead text-foreground/80 dark:text-muted-foreground text-balance mx-auto lg:mx-0"
+          >
+            Software à medida, Business Intelligence e consultoria IT — desde{" "}
+            <span className="text-foreground font-medium">1998</span> a transformar empresas
+            do setor automóvel e enterprise com tecnologia que{" "}
+            <span className="text-foreground font-medium">antecipa o amanhã</span>.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.0, duration: 0.8 }}
+            className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-4"
+          >
+            <MagneticButton variant="primary" onClick={() => navigate({ to: "/contacto" })}>
+              Quero ser contactado <ArrowRight className="h-4 w-4" />
+            </MagneticButton>
+            <MagneticButton variant="ghost" onClick={() => navigate({ to: "/produtos" })}>
+              Conhecer o B.Analytics
+            </MagneticButton>
+          </motion.div>
+        </div>
+
+        {/* Right column — floating "órbita" card over the moon (desktop) */}
+        <div className="relative hidden lg:block">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+            className="absolute right-0 top-1/2 mt-20 w-[210px] glass-elev rounded-2xl p-5"
+          >
+            <Sparkles className="size-4 text-primary" />
+            <p className="mt-3 font-display text-lg leading-snug">
+              A tecnologia<br />é a nossa <span className="text-gradient">órbita</span>.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Floating HUD chips */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 1 }}
+        className="absolute bottom-10 inset-x-0 z-30 flex flex-wrap items-center justify-center gap-3 px-6"
+      >
+        {["Desde 1998", "Software à medida", "B.Analytics", "Suporte SLA"].map((t) => (
+          <div
+            key={t}
+            className="px-3 py-1.5 glass rounded-full text-[11px] font-mono uppercase tracking-wider text-muted-foreground"
+          >
+            {t}
+          </div>
+        ))}
+      </motion.div>
     </section>
   );
 }
