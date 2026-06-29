@@ -24,7 +24,7 @@ export function Footer() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid md:grid-cols-4 gap-10 pt-12 border-t border-border/50">
           <div className="md:col-span-2">
-            <Link to="/" className="font-display text-xl">Moonlight<span className="text-primary">.</span></Link>
+            <Link to="/home" className="font-display text-xl">Moonlight<span className="text-primary">.</span></Link>
             <p className="mt-3 text-sm text-muted-foreground max-w-xs">
               Moonlight Comunicação Global LDA. Desde 1998 a construir o futuro —
               software, BI e consultoria. <span className="text-foreground">O futuro não espera.</span>

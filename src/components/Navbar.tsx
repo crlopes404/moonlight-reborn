@@ -5,7 +5,7 @@ import { Link } from "@tanstack/react-router";
 import { useTheme } from "@/lib/theme";
 
 const links = [
-  { to: "/", label: "Início" },
+  { to: "/home", label: "Início" },
   { to: "/quem-somos", label: "Quem Somos" },
   { to: "/servicos", label: "Serviços" },
   { to: "/produtos", label: "Produtos" },
@@ -51,7 +51,7 @@ export function Navbar() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* Always-on glass: sticky blur prevents content bleeding through in light mode */}
           <div className={`flex items-center justify-between rounded-2xl md:rounded-full px-4 md:px-6 py-2.5 nav-glass transition-all duration-500 ${scrolled ? "neon-shadow scale-[0.99]" : ""}`}>
-            <Link to="/" className="flex items-center gap-2.5 group shrink-0" aria-label="Moonlight — início">
+            <Link to="/home" className="flex items-center gap-2.5 group shrink-0" aria-label="Moonlight — início">
               <Logo />
               <span className="font-display text-lg tracking-tight">
                 Moonlight<span className="text-primary">.</span>
@@ -63,7 +63,7 @@ export function Navbar() {
                 <Link
                   key={l.to}
                   to={l.to}
-                  activeOptions={{ exact: l.to === "/" }}
+                  activeOptions={{ exact: l.to === "/home" }}
                   className="relative px-3.5 py-2 text-sm font-medium text-muted-foreground rounded-full transition-colors duration-200 hover:text-foreground [&.active]:text-foreground"
                 >
                   {({ isActive }) => (
@@ -111,7 +111,7 @@ export function Navbar() {
                   <motion.div key={l.to} initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.1 + i * 0.05 }}>
                     <Link
                       to={l.to}
-                      activeOptions={{ exact: l.to === "/" }}
+                      activeOptions={{ exact: l.to === "/home" }}
                       onClick={() => setOpen(false)}
                       className="text-4xl font-display tracking-tight text-muted-foreground transition-colors [&.active]:text-foreground [&.active]:[text-shadow:0_0_30px_var(--glow)]"
                     >
